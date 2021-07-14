@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react';
+import "./App.css";
+//import components
+import Nav from './components/Nav'
+import Tweets from './components/Tweets'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  //can write JS here 
+  //variables in react dont react to changes, so that's when you use State
+
+  const [counter, setCounter] = useState(0)
+
+  const incrementer = () => {
+    setCounter(counter + 1);
+  }
+
+  return ( 
+  <div className="App">
+    <h1>Hello React</h1>
+    <h2>Counter {counter}</h2>
+    <button onClick={incrementer}>Click</button>
+    <div className="home">
+    <Nav />
+    <Tweets />
     </div>
+  </div>
   );
 }
 
